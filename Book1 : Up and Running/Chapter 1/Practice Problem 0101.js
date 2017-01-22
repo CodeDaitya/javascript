@@ -21,7 +21,7 @@ while(bankBalance){
 
     spendingThreshold = prompt("Enter your spending threshold:");
 
-    if(priceOfPhone > spendingThreshold){
+    if(bankBalance < spendingThreshold){
 
         alert("Spending Threshold can't be greater than Bank Balance!!!");
         continue;
