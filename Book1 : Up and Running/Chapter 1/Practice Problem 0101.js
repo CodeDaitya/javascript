@@ -28,7 +28,7 @@ while(bankBalance){
 
     }
 
-    priceOfPhone      = prompt("What is the price of the phone you just purchsed?");
+    priceOfPhone      = prompt("What is the price of the phone you just purchased?");
 
     if(priceOfPhone > spendingThreshold){
         
@@ -38,9 +38,8 @@ while(bankBalance){
     }
 
     priceOfAccessory  = spendingThreshold - priceOfPhone;
-    bankBalance       = bankBalance - spendingThreshold;
 
-    if(spendingThreshold==0){
+    if(priceOfAccessory == 0){
         
         alert("No accessories bought!");
 
@@ -50,7 +49,8 @@ while(bankBalance){
 
     }
 
-    totalPrice       = totalPrice + spendingThreshold;
+    bankBalance = bankBalance - spendingThreshold;
+    totalPrice  = totalPrice + spendingThreshold;
 }
 
 console.log("Total Price of all the phone purchses : ", totalPrice); 
