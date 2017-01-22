@@ -8,18 +8,47 @@ threshold.
 
 var totalPrice = 0;
 var priceOfPhone;
-var priceOfPurchase;
 var priceOfAccessory;
-var spendingThreshold;
+var spendingThreshold; // also the total expenditure on a purchase
 var bankBalance = prompt("What is your bank balance?");
 
 
 while(bankBalance){
+    
+    console.log("New Purchse!!");
+
     spendingThreshold = prompt("Enter your spending threshold:");
-    priceOfPurchased  = prompt("What is the price of the phone you just purchsed?");
-    priceOfAccessory  = spendingThreshold - priceOfPurchased;
-    priceOfPurchase   = priceOfPurchased + priceOfAccessory; // spendingThreshold too equals total cost of a single purchase
-    totalPrice       += priceOfPurchase;
+
+    if(priceOfPhone > spendingThreshold){
+
+        alert("Spending Threshold can't be greater than Bank Balance!!!");
+        continue;
+
+    }
+
+    priceOfPhone      = prompt("What is the price of the phone you just purchsed?");
+
+    if(priceOfPhone > spendingThreshold){
+        
+        alert("Amount can't be greater than the Spending Threshold!!!");
+        continue;
+
+    }
+
+    priceOfAccessory  = spendingThreshold - priceOfPhone;
+    bankBalance      -= spendingThreshold;
+
+    if(spendingThreshold==0){
+        
+        alert("No accessories bought!");
+
+    }else{
+        
+        console.log("The accesories costed ", priceOfAccessory);
+        
+    }
+
+    totalPrice       += spendingThreshold;
 }
 
-console.log("Total Price of all the phone purchses : ", totalPrice);
+console.log("Total Price of all the phone purchses : ", totalPrice); 
