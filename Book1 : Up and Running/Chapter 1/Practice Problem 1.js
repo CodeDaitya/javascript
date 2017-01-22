@@ -7,10 +7,12 @@ threshold.
 */
 
 var totalPrice = 0;
-var priceOfPhone;
-var priceOfAccessory;
-var spendingThreshold; // also the total expenditure on a purchase
-var bankBalance = prompt("What is your bank balance?");
+var priceOfPhone = 0;
+var priceOfAccessory = 0;
+var spendingThreshold = 0; // also the total expenditure on a purchase
+var bankBalance = 0;
+
+bankBalance = prompt("What is your bank balance?");
 
 
 while(bankBalance){
@@ -30,13 +32,13 @@ while(bankBalance){
 
     if(priceOfPhone > spendingThreshold){
         
-        alert("Amount can't be greater than the Spending Threshold!!!");
+        alert("Price can't be greater than the Spending Threshold!!!");
         continue;
 
     }
 
     priceOfAccessory  = spendingThreshold - priceOfPhone;
-    bankBalance      -= spendingThreshold;
+    bankBalance       = bankBalance - spendingThreshold;
 
     if(spendingThreshold==0){
         
@@ -45,10 +47,10 @@ while(bankBalance){
     }else{
         
         console.log("The accesories costed ", priceOfAccessory);
-        
+
     }
 
-    totalPrice       += spendingThreshold;
+    totalPrice       = totalPrice + spendingThreshold;
 }
 
 console.log("Total Price of all the phone purchses : ", totalPrice); 
