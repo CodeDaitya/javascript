@@ -14,43 +14,46 @@ var bankBalance = 0;
 
 bankBalance = prompt("What is your bank balance?");
 
+if(bankBalance!==0){
+    while(bankBalance===0){
+        
+        console.log("New Purchse!!");
 
-while(bankBalance){
-    
-    console.log("New Purchse!!");
+        spendingThreshold = prompt("Enter your spending threshold:");
 
-    spendingThreshold = prompt("Enter your spending threshold:");
+        if(bankBalance < spendingThreshold){
 
-    if(bankBalance < spendingThreshold){
+            alert("Spending Threshold can't be greater than Bank Balance!!!");
+            continue;
 
-        alert("Spending Threshold can't be greater than Bank Balance!!!");
-        continue;
+        }
 
+        priceOfPhone = prompt("What is the price of the phone you just purchased?");
+
+        if(priceOfPhone > spendingThreshold){
+            
+            alert("Price can't be greater than the Spending Threshold!!!");
+            continue;
+
+        }
+
+        priceOfAccessory = spendingThreshold - priceOfPhone;
+
+        if(priceOfAccessory == 0){
+            
+            alert("No accessories bought!");
+
+        }else{
+            
+            console.log("The accesories costed ", priceOfAccessory);
+
+        }
+
+        bankBalance -= spendingThreshold;
+        totalPrice  += Number(priceOfPhone);
     }
 
-    priceOfPhone      = prompt("What is the price of the phone you just purchased?");
-
-    if(priceOfPhone > spendingThreshold){
-        
-        alert("Price can't be greater than the Spending Threshold!!!");
-        continue;
-
-    }
-
-    priceOfAccessory  = spendingThreshold - priceOfPhone;
-
-    if(priceOfAccessory == 0){
-        
-        alert("No accessories bought!");
-
-    }else{
-        
-        console.log("The accesories costed ", priceOfAccessory);
-
-    }
-
-    bankBalance = bankBalance - spendingThreshold;
-    totalPrice  = totalPrice + spendingThreshold;
+    console.log("Total Price of all the phone purchses : ", totalPrice);     
+}else{
+    alert("You're Broke!!!!");
 }
-
-console.log("Total Price of all the phone purchses : ", totalPrice); 
