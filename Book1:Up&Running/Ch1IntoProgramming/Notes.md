@@ -51,14 +51,14 @@ console.log(price);
 
 JavaScript has built-in types for each of the primitive value types:
 
-	* **number**, for numeric values
-	* **string**, to print value on the screen or to store characters(single chareacter, word, sentences, number strings)
-	* **boolean**, for making decisions (**true** or **false**)
+	*  **number**, for numeric values
+	*  **string**, to print value on the screen or to store characters(single chareacter, word, sentences, number strings)
+	*  **boolean**, for making decisions (**true** or **false**)
 
 Values included directly in code are called literals. **string** literals are enclosed in double-quotes(" ") or in single-quote(' ') based on the
 programmers preference. **numeric** or **boolean** literals are presented as is.
 
-### COnverting between types
+### Converting between types
 
 A number when printed to screen is converted to string. This is called _coercion_. It happens when a numeric operation is performed on data from a
 user input in forms which is a string value and has to be converted into a numeric value. This is done automatically and is therefore _implicit_.  
