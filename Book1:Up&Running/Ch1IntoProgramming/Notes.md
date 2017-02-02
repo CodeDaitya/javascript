@@ -4,9 +4,9 @@ JavaScript has all the basic building blocks like variables, operators, flow con
 languages. But one has to be careful still especially when dealing with operators. Other than the usual arithmetic and logical operators
 JavaScript has two additional operators for equality and not-equals.
 
-Strict equal `===` and Not strict equal `!==`.
+Strict equal === and Not strict equal !==.
 
-For the usual `=='
+For the usual ==
 
 	`2=='2'`
 
@@ -15,7 +15,7 @@ while that on the left is a string. So what happens here is that JavaScript does
 carry out an unmatched comparisson by changing one of the expression to an appropriate type and returns a boolean value based on that comparisson.
 This also happens in the cases when someone tries to add/subtract a `String` and a `Number`.
 
-	`2 + '2' = "22"`	`23 - '3' = '2'`
+	`2 + '2' = "22"		23 - '3' = '2'`
 
 This feature of JavaScript can cause many problems and cause bugs if not handled carefully. It needs some attention while dealing with these four
 comparison operators and other cases of type coercion. Once understood clearly, it can be a really powerful arrow up your quiver(not quite sure how
@@ -51,9 +51,9 @@ console.log(price);
 
 JavaScript has built-in types for each of the primitive value types:
 
-	*  **number**, for numeric values
-	*  **string**, to print value on the screen or to store characters(single chareacter, word, sentences, number strings)
-	*  **boolean**, for making decisions (**true** or **false**)
+	 **number**, for numeric values
+	 **string**, to print value on the screen or to store characters(single chareacter, word, sentences, number strings)
+	 **boolean**, for making decisions (**true** or **false**)
 
 Values included directly in code are called literals. **string** literals are enclosed in double-quotes(" ") or in single-quote(' ') based on the
 programmers preference. **numeric** or **boolean** literals are presented as is.
@@ -84,7 +84,9 @@ JavaScript uses dynamic typing appraoch, that is, a variable can hold any type o
 scripting language.  
 A variable is declared using a **var** keyword without specifying its type.  
 
-`var a;`  
+```javascript
+var a;
+```  
 
 This variable can take any type of value, different types of values during to program run.  
 
