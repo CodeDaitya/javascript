@@ -2,7 +2,7 @@
 
 ## Values & Types
 
-Available built-in types:
+Available built-in types:  
 
 	 **string**
 	 **number**
