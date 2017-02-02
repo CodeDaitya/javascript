@@ -51,9 +51,9 @@ console.log(price);
 
 JavaScript has built-in types for each of the primitive value types,  
   
-**number**, for numeric values  
-**string**, to print value on the screen or to store characters(single chareacter, word, sentences, number strings)  
-**boolean**, for making decisions (**true** or **false**)  
+	* **number**, for numeric values  
+	* **string**, to print value on the screen or to store characters(single chareacter, word, sentences, number strings)  
+	* **boolean**, for making decisions (**true** or **false**)  
 
 Values included directly in code are called literals. **string** literals are enclosed in double-quotes(" ") or in single-quote(' ') based on the
 programmers preference. **numeric** or **boolean** literals are presented as is.
