@@ -196,4 +196,170 @@ func();
 Turning on the strict mode may throw up a lot of errors, but shouldn't be seen as a deterrent. Rather it should be seen as there are some things in
 the code that needs to be fixed. It is recommended.  
 
+## Functions as Values  
+
+A function is basically a variable in an outer enclosing scope that's given a reference to the function being declared. Thus, it can just be a value
+assigned to another variable just like any other epression.  
+
+```javascript
+
+var func() = function(){	//anonymous function expression, no name
+
+};
+
+var x = function x(){	//named function expression
+
+};
+```  
+
+### Immediately Invoked Function Expressions (IIFEs)  
+
+This is another way to execute a funciton expression.  
+
+```javascript
+(function IIFE(){
+	console.log("hello!");
+})();
+```  
+
+The outer () is just a nuamce of JS grammer to prevent it from being treated as a normal function declaration. The final () on the end of the
+expression is what actually executes the function expression referenced immediately.  
+
+This is actually how evry function works,  
+
+```javascript
+
+function func(){----}
+	// function reference expression
+	//then, `()` executes it
+func();
+
+	// IIFE function expression
+	// then, `()`
+(function IIFE(){----})();
+```  
+
+It is often used to declare variables that won't affect the surrounding code.  
+
+```javascript
+
+var a = 42;
+(function IIFE(){
+	var a = 10;
+	console.log(a);	// 10
+})();
+
+console.log(a);		// 42
+```  
+
+They return value too, just like any other function.  
+
+## Closure  
+
+It is a way to remember and continue to access a function scope even after the the function has finished execution.  
+
+```javascript
+
+function makeAdder(x){
+	//parameter `x` is an inner variable
+	
+	//inner function `add()` uses `x`,
+	//it has closure over it
+
+	function add(y){
+		return y + x;
+	};
+
+	return add;
+}
+
+//plusOne gets refernced to the inner `add()` function
+//with closure over x
+
+var plusOne = makeAdder(1);
+
+//plusTen gets referenced to the inner `add()` function
+//with closure over x
+
+var plusTen = makeAdder(10);
+
+plusOne(3);	//4 <-- 3 + 1
+plusOne(41);	//42 <-- 41 + 1
+plusTen(13);	//23 <-- 13 + 10
+```  
+
+`makeAdder(1)` remembers `x` as 1, `makeAdder(10)` remembers `x`as 10. `plusOne(3)` adds 3, the inner `y`, to the remembered `x`, 1. `plusTen(13)`
+adds 10 similarily.  
+
+### Modules  
+
+Modules allows defining private Implementation details( variables and functions) hidden from the outside world, as well as a public APIthat is
+accessible from the outside.  
+
+```javascript
+
+function User(){
+	var username, password;
+
+	function doLogin(user, pw){
+		username = user;
+		password = pw;
+
+		// do the rest of the logic work
+	}
+
+	var publicAPI = {
+		login: doLogin
+	};
+
+	return publicAPI;
+}
+
+//create a 'User' module instance
+var user = User();
+user.login("name", "secretpass");
+```  
+
+`User()` creates an instance of the User module. The inner `doLogin()` function has the closure over `username` and `password`.  
+publicAPI is an object with one prrperty, login, that refernces to the `doLogin()` function.  
+The closure in `logic()` function keeps the instance alive even after the `User()` has finished executing.  
+
+## this Identifier  
+
+If a function has a **this** reference inside it, that **this** reference usually points to an object. But which object it points depends on how the
+function was called. **this** does not refer to the function itself.  
+
+```javascript
+
+function func(){
+	console.log.(this.bar);
+}
+
+var bar = "global";
+
+var obj1 = {
+	bar: "obj1",
+	func: func
+};
+
+var obj2 = {
+	bar: "obj2"
+};
+
+func();		// "global"
+obj1.func()	// "obj1"
+func.call(obj2)	// "obj2"
+new func();	// undefined
+```  
+
+Four rules for how **this** gets set, 
+
+	1. func() ends up setting **this** to the global object in non-strict mode (undefined in strict mode) so "global" is the value found in
+	   `this.bar`.  
+	2. obj1.func() sets **this** to the obj2 object.  
+	3. func.call(obj2) sets **this** to the boj2 object.  
+	4. `new func()` sets **this** to a brand new empty object.  
+
+One needs to examine how the function that referenced **this** is called to understand what **this** points to.  
+
 
