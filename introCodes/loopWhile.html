@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LoopWhile</title>
+    <script>
+      var response;
+      var check = true;
+
+      while(check){
+        response = prompt("Do you like it in dark?");
+        if(response.indexOf('y')==0){
+          alert("That's right, yo!");
+          check = false;
+        }
+        else{
+          alert("Enhhh! Wrong answer!!");
+        }
+      }
+    </script>
+  </head>
+</html>
