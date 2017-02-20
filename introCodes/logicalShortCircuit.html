@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>LogicalShortCircuit</title>
+    <script type="text/javascript">
+      function first(logOp){
+        alert("The first function is running "+logOp);
+        return true;
+      }
+      function second(logOp){
+        alert("The second function is running "+logOp);
+        return false;
+      }
+
+      // if the first return value is false, the other expression are not evaluted
+      // for a longer chain, evaluation stops at first false value
+      var test = first('AND') && second('AND');
+      test = second('AND') && first('AND');
+
+      // if the first return value is true, the other expression are not evaluted
+      // for a longer chain, evalution stops at first true value
+      test = first('OR') || second('OR');
+      test = second('OR') || first('OR');
+    </script>
+  </head>
+</html>
