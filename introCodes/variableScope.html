@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>VariableLocal</title>
+    <script>
+      function func(){
+        var money = 2;            // local variable
+        alert("Money in function :"+money);
+      }
+
+      money = 99;  // auto-global variable, used without declaration
+      func();
+      alert("Money outside :"+money);
+    </script>
+  </head>
+</html>
