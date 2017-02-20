@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Array</title>
+    <script type="text/javascript">
+      var pets = new Array(3);
+      pets = ["Dog", "Cat", "Rabbit"];
+
+      // join array elements with " and " in the between
+      alert("The pets array contains, "+pets.join(" and "));
+
+      // join array elements with "," in between between
+      alert("The pets array contains, "+pets.join());
+
+      // getting second element from the array
+      alert("Second array element is, "+pets[2]);
+
+      // change an array element
+      pets[2] = "Cow";
+      alert("Second array element is, "+pets[2]);
+
+      // get the array length
+      alert("Array length is, "+pets.length);
+
+      // add an element to the array
+      pets.push("Rabbit");
+      alert("The element appended to the array is, "+pets[pets.length-1]);
+
+      // add an element at the beginning of the array
+      pets.unshift("Squirrel");
+      alert("The element prepended to the array is, "+pets[0]);
+
+      // remove the last element from the array
+      var lastEl = pets.pop();
+      alert("The element removed from the array is, "+lastEl);
+      alert(pets);
+
+      // remove the first element from the array
+      var firstEl = pets.shift();
+      alert("The element remove from the array is, "+firstEl);
+      alert(pets);
+
+      var conArr = [firstEl, lastEl];
+      // concatenate elements to the array
+      conRes = pets.concat(conArr);
+      alert(conRes);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>
