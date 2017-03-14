@@ -6,6 +6,8 @@ var guesses = 0;
 var finished = false;
 target = colors[Math.floor(Math.random()*colors.length)];
 
+alert(target);
+
 function colorGame(){
 
   while(!finished){
@@ -30,6 +32,7 @@ function check_color(color){
     return false;
   }
 
+  document.body.style.backgroundColor = color;
   alert("You got it! The right color is "+color+"!!\n\n"
         +"It took you "+guesses+" guesses!!");
   return true;
