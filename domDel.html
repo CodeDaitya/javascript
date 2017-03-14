@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM - Deleting a Node</title>
+    <script type="text/javascript">
+
+      //delete node by id
+      function remById(){
+        var ele = document.getElementById('firstP');
+        ele.parentNode.removeChild(ele);
+      }
+
+      //delete node by tag name
+      function remByPath(){
+        var ele = document.getElementsByTagName('p')[0];
+        ele.parentNode.removeChild(ele);
+      }
+
+      //delete node using parent node
+      function remByParent(){
+        var par = document.getElementById('theBody');
+        par.removeChild(par.firstChild);
+      }
+
+      //delete all the children
+      function delAllCh(){
+        par = document.getElementById('theBody');
+        while(par.firstChild)
+          par.removeChild(par.firstChild);
+      }
+    </script>
+  </head>
+  <body id="theBody">
+    <p id="firstP">Hello!</p>
+    <p>How are you?</p>
+    <p>It's a nice day!</p>
+
+    <form>
+      <input type="button" onclick="remById()" value="Example 1">
+      <input type="button" onclick="remByPath()" value="Example 2">
+      <input type="button" onclick="remByParent()" value="Example 3"><br><br>
+      <input type="button" onclick="delAllCh()" value="Delete Children">
+    </form>
+
+    <p>Reload the page to reset the DOM.</p>
+  </body>
+</html>

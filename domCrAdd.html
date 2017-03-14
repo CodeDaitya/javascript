@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM - Create/Add Node</title>
+    <script type="text/javascript">
+      function insertHorRul(){
+        var newItem = document.createElement('hr');
+        var destParent = document.getElementsByTagName('body')[0];
+        destParent.insertBefore(newItem, destParent.firstChild);
+      }
+      function insertText(){
+        var result = document.createTextNode(' This is an added text!');
+        var textPart = getElementById('my_text');
+        textPart.appendChild(result);
+      }
+    </script>
+  </head>
+  <body onclick="insertHorRul()">
+    <h1 id="my_text">Please click on the page</h1>
+  </body>
+</html>

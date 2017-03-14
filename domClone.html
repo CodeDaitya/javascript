@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>DOM - Clone Node</title>
+    <script type="text/javascript">
+      function cloneN(){
+        var ele = document.getElementById('myList').lastChild;
+        //var clone = ele.cloneNode(); copy the elemetn, not the content of that elemetn
+        var clone = ele.cloneNode(true);
+        document.getElementById('myList').appendChild(clone);
+      }
+    </script>
+  </head>
+  <body>
+    <ul id="myList"><li>Good Morning</li><li>Hello</li></ul>
+
+    <p>Click the button to perform clone</p>
+
+    <input type="button" value="Copy it!" onclick="cloneN()">
+  </body>
+</html>
