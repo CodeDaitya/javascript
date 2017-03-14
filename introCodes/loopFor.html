@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var continents = ["Australia", "Afirca", "Antarctica", "Eurasia", "America"];
+      var response, count = 0;
+      for(var i=0; i<continents.length;i++){
+        response = confirm("Have you been to "+continents[i]+"?");
+        if(response)count++;
+      }
+      alert("You have been to "+count+" continents!")
+    </script>
+    <title>For Loop</title>
+  </head>
+</html>

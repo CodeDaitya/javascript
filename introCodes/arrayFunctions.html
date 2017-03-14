@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Array Functions</title>
+    <script type="text/javascript">
+      var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
+      alert("Original array, "+pets);
+
+      pets.sort();
+      alert(pets);
+
+      var pets = ["Dog", "Cat", "Rabbit", "Hamster"];
+      alert("Unsorted array, "+pets);
+
+      pets.reverse();
+      alert("Reversed array, "+pets);
+
+      pets.sort().reverse();
+      alert("Reverse sorted array, "+pets);
+
+      alert("The position of Rabbit in the array "+pets.indexOf("Rabbit")+1+".");
+
+      result = pets.slice(1);
+      alert("Array after slice, "+pets+"\nThe sliced element is "+result);
+
+      result = pets.splice(1, 1, "Fish", "Bird");
+      alert("Array after splice, "+pets+"\nThe replaced element is "+result);
+
+      // forEach
+      pets.forEach(alert);
+
+      var numbers = [1, 2, 3, 4, 5];
+      numbers.forEach(function(ele, inx, arr){
+        arr[inx] = ele*ele;
+      });
+
+      alert("The 'numbers' array before forEach operation: "+numbers+"\nThe 'numbers' array after forEach operation: "+numbers);
+      alert("forEach operation changes the original array.");
+
+      numbers = [1, 2, 3, 4, 5];
+      var square = function(el){return el*el;}
+      var results = numbers.map(square);
+      alert("The 'numbers' array before map operation: "+numbers+"\nThe 'numbers' array after map operation: "+numbers);
+      alert("map operation doesn't change the original array.");
+      alert("The results is stored in a new array as: "+results);
+    </script>
+  </head>
+</html>
