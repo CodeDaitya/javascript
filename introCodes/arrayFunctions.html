@@ -31,11 +31,11 @@
       pets.forEach(alert);
 
       var numbers = [1, 2, 3, 4, 5];
+      alert("The 'numbers' array before forEach operation: "+numbers);
       numbers.forEach(function(ele, inx, arr){
         arr[inx] = ele*ele;
       });
-
-      alert("The 'numbers' array before forEach operation: "+numbers+"\nThe 'numbers' array after forEach operation: "+numbers);
+      alert("The 'numbers' array after forEach operation: "+numbers);
       alert("forEach operation changes the original array.");
 
       numbers = [1, 2, 3, 4, 5];
