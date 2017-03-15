@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Timer Event - setTimeout</title>
+    <script type="text/javascript">
+      function set_time(){
+      //  wait_duration = prompt("How long do you want to sleep?")
+        wait_duration = 1000;
+        setTimeout(show_wake_up_message, wait_duration);
+      }
+
+      function show_wake_up_message(){
+        alert("WAKE UP! WAKE UP! WAKE UP! WAKE UP!");
+
+        im = document.createElement('img');
+        im.src = './temple.jpg';
+        im.setAttribute("width", "50%");
+        im.setAttribute("height", "50%");
+        document.body.appendChild(im);
+        var x_pos = 0;
+        mvImg(x_pos,im);
+      }
+
+      function mvImg(x_pos,im){
+        x_pos += 1;
+        im.style.left = x_pos;
+
+        var timer = setTimeout(mvImg(x_pos,im), 50);
+      }
+    </script>
+  </head>
+  <body onload="set_time()">
+    <h1>Alarm Clock example</h1>
+    <input type="button" value="Stop!" style="position:absolute;left:50%;bottom:5%;" onclick="clearTimeout(timer)")>
+  </body>
+</html>

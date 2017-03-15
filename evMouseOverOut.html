@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mouse Events - onmouseover/onmouseout</title>
+    <script type="text/javascript">
+      function change_color(new_color){
+        document.getElementById('myDiv').style.background=new_color;
+      }
+
+    </script>
+  </head>
+  <body>
+    <div id="myDiv" style="position:absolute;background:yellow;left:100px;top:75px;width:175pt;font-size:52pt;"
+      onmouseover="change_color('red');" onmouseout="change_color('yellow');">
+      Move your mouse over here...
+      and then away...
+    </div>
+  </body>
+</html>
