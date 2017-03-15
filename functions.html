@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Functions</title>
+    <script type="text/javascript">
+      function check(a, b){
+        if(b!=0)
+          return true;
+        else
+          return false;
+      }
+
+      //passing a functionto another
+      function divide(fn, num, div){
+        if(fn(num, div)){
+          alert("It's ok!");
+          return num/div;
+        }
+        else{
+          alert("Division by '0' not allowed.");
+          return false;
+        }
+      }
+
+      result = divide(check, 44, 0);
+      if(result){alert(result);}
+
+      function counter(){
+        var count = 0;
+
+        //returning a function -- closure on the values in outer function
+        return function(){
+          count++;
+          alert(count);
+        }
+      }
+
+      var count = counter();
+      count();
+      count();
+      count();
+    </script>
+  </head>
+</html>
