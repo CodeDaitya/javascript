@@ -6,14 +6,17 @@
     <style>
       body{
         margin: 0; padding: 0;
-        margin-left: 11em;
+        margin-left: 11.75em;
       }
-      h2{margin: 0; padding: 15px 0 5px 0;}
-      p{margin: 0; padding: 5px 0 20px 0;}
+      h2{margin: 0; padding-top: 15px;}
+      p{margin: 0; padding-bottom: 15px;}
       div{
         position: absolute;
         display: inline; height: 500px;
         margin: 0; padding: 0;
+      }
+      hr{
+        margin-left: 0;width: 1000px;
       }
 
       #leftSide{
@@ -29,7 +32,7 @@
     </style>
   </head>
   <body onload="generateFaces()">
-    <h2>Matching Game</h2>
+    <h2>Matching Game</h2><hr>
     <p>Click on the extra smiling face on the left</p>
 
     <div id="leftSide"></div><div id="rightSide"></div>
@@ -49,7 +52,7 @@
           im[i].style.imageOrientation = Math.random()*360;
           theLeftSide.appendChild(im[i]);
         }
-        
+
         // clone the left side, remove an image and append to the right side
         var theRightSide = document.getElementById('rightSide');
         var leftSideImages = theLeftSide.cloneNode(true);
@@ -60,15 +63,16 @@
       //proceed to the next level; remove faces, re-generate with +5 faces
       theLeftSide.lastChild.onclick = function nextLevel(event){
         event.stopPropagation();
-        while(theLeftSide.firstChild){
+        while(theLeftSide.firstChild||theRightSide.firstChild){
           theLeftSide.removeChild(theLeftSide.firstChild);
+          theRightSide.removeChild(theRightSide.firstChild);
         }
         numberOfFaces += 5;
         generateFaces();
       };
 
       //game over on click anything other than the extra image
-      var theBody = document.getElementsByName('body')[0];
+      var theBody = document.getElementsByTagName('body')[0];
       theBody.onclick = function gameOver(event){
         alert('Game Over!');
         theBody.onclick = null;
