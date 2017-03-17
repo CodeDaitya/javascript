@@ -38,17 +38,18 @@
       var theLeftSide = document.getElementById('leftSide');
 
       var im = [];
-      var t, l;
 
       //generates faces on the left side
       function generateFaces(){
         for(var i = 0; i<numberOfFaces; i++){
           im[i] = document.createElement('img');
           im[i].src = 'smile.png'; im[i].style.position = 'absolute';
-          t = Math.floor(Math.random()*400); l = Math.floor(Math.random()*400);
-          im[i].style.top = t+'px'; im[i].style.left = l+'px';
+          im[i].style.top = Math.floor(Math.random()*400)+'px';
+          im[i].style.left = Math.floor(Math.random()*400)+'px';
+          im[i].style.imageOrientation = Math.random()*360;
           theLeftSide.appendChild(im[i]);
         }
+      }
 
         // clone the left side, remove an image and append to the right side
         var theRightSide = document.getElementById('rightSide');
