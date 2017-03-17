@@ -44,11 +44,9 @@
           im[i].src = 'smile.png'; im[i].style.position = 'absolute';
           im[i].style.top = Math.floor(Math.random()*400)+'px';
           im[i].style.left = Math.floor(Math.random()*400)+'px';
-          im[i].style.imageOrientation = Math.random()*360;
           theLeftSide.appendChild(im[i]);
         }
-      }
-
+        
         var theRightSide = document.getElementById('rightSide');
         var leftSideImages = theLeftSide.cloneNode(true);
         leftSideImages.removeChild(leftSideImages.lastChild);
