@@ -59,7 +59,10 @@
           event.stopPropagation();
           while(theLeftSide.firstChild||theRightSide.firstChild){
             theLeftSide.removeChild(theLeftSide.firstChild);
-            theRightSide.removeChild(theRightSide.firstChild);
+
+            if(rightSide.firstChild){
+              theRightSide.removeChild(theRightSide.firstChild);
+            }
           }
           numberOfFaces += 5;
           generateFaces();
