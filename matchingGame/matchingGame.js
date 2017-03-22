@@ -1,6 +1,7 @@
 var numberOfFaces = 5;
 var theLeftSide = document.getElementById('leftSide');
 var theRightSide = document.getElementById('rightSide');
+var theBody = document.getElementsByTagName('body')[0];
 
 var im = [];
 
@@ -19,6 +20,7 @@ function generateFaces(){
   leftSideImages.removeChild(leftSideImages.lastChild);
   theRightSide.appendChild(leftSideImages);
 
+  //proceed to the next level; remove faces, re-generate with +5 faces
   theLeftSide.lastChild.onclick = function nextLevel(event){
     event.stopPropagation();
     while(theLeftSide.firstChild||theRightSide.firstChild){
@@ -31,23 +33,22 @@ function generateFaces(){
     numberOfFaces += 5;
     generateFaces();
   };
-}
 
-//proceed to the next level; remove faces, re-generate with +5 faces
+  //game over on click anything other than the extra image
+  theBody.onclick = function gameOver(event){
+    alert('Game Over!');
+    theBody.onclick = null;
+    theLeftSide.lastChild.onclick = null;
 
-//game over on click anything other than the extra image
-var theBody = document.getElementsByTagName('body')[0];
-theBody.onclick = function gameOver(event){
-  alert('Game Over!');
+    if(confirm("Do you want to play again?")){
+      while(theLeftSide.firstChild||theRightSide.firstChild){
+        theLeftSide.removeChild(theLeftSide.firstChild);
 
-  if(confirm("Do you want to play again?")){
-    while(theLeftSide.firstChild||theRightSide.firstChild){
-      theLeftSide.removeChild(theLeftSide.firstChild);
-
-      if(rightSide.firstChild)
-        theRightSide.removeChild(theRightSide.firstChild);
+        if(rightSide.firstChild)
+          theRightSide.removeChild(theRightSide.firstChild);
+      }
+      numberOfFaces = 5;
+      generateFaces();
     }
-    numberOfFaces = 5;
-    generateFaces();
-  }
-};
+  };
+}
