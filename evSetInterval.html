@@ -3,18 +3,19 @@
   <head>
     <meta charset="utf-8">
     <title>Timer Event - setInterval/clearInterval</title>
+  </head>
+  <body onload="timer=setInterval(do_timer, 50)">
+    <img id="tIm" src="temple.jpg" width="25%"  style="position:absolute;left:0">
+    <input type="button" value="Stop!" onclick="clearInterval(timer)" style="position:absolute;bottom:10px;left:50%;">
+
     <script type="text/javascript">
       var timer, pos=0, im;
 
       function do_timer(){
-        im = document.getElementsByTagName('img');
+        im = document.getElementById('tIm');
         pos += 1;
         im.style.left = pos;
       }
     </script>
-  </head>
-  <body onload="timer=setInterval(do_timer, 50)">
-    <img src="temple.jpg" width="50%" style="position:absolute;left:0">
-    <input type="button" value="Stop!" onclick="clearInterval(timer)" style="position:absolute;bottom:10px;left:50%;">
   </body>
 </html>
